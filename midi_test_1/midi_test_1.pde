@@ -25,5 +25,5 @@ void controllerChange(int channel, int number, int value) {
 void draw() {
   stroke(255);
   line(0, val, width, val);
-  println("val: "+val);
+  println("val: " + val);
 }
