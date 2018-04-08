@@ -13,7 +13,7 @@ void setup() {
 
 }
 
-float superShape(float theta, sfloat m, float n1, float n2, float n3){
+float superShape(float theta, float m, float n1, float n2, float n3){
 	float r = 1;
 	return r;
 }
