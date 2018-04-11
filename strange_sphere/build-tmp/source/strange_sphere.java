@@ -14,14 +14,14 @@ import java.io.InputStream;
 import java.io.OutputStream; 
 import java.io.IOException; 
 
-public class sphere_enhance extends PApplet {
+public class strange_sphere extends PApplet {
 
 
 
 PeasyCam cam;
 
 PVector[][] globe;
-int res = 50;
+int res = 75;
 
 public void setup() {
 	
@@ -31,8 +31,19 @@ public void setup() {
 
 }
 
+
 public float superShape(float theta, float m, float n1, float n2, float n3){
-	float r = 1;
+
+	float a = 1;
+	float b = (frameCount / 100);
+
+	float t1 = abs((1/a) * cos(m * theta / 4));
+	t1 = pow(t1, n2);
+	float t2 = abs((1/b) * sin(m * theta / 4));
+	t2 = pow(t2, n3);
+	float t3 = t1 + t2;
+
+	float r = pow(t3, - 1 / n1);
 	return r;
 }
 
@@ -76,7 +87,7 @@ public void draw() {
 }	
   public void settings() { 	size(800, 800, P3D); }
   static public void main(String[] passedArgs) {
-    String[] appletArgs = new String[] { "sphere_enhance" };
+    String[] appletArgs = new String[] { "strange_sphere" };
     if (passedArgs != null) {
       PApplet.main(concat(appletArgs, passedArgs));
     } else {
