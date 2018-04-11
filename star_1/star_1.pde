@@ -25,13 +25,13 @@ void draw() {
 	float r = 200;
 
 	for (int i = 0; i < res + 1; ++i) {
-		float lat = map(i, 0, res, -HALF_PI, HALF_PI);
+		float lat = map(i, 0, res, 0, PI);
 		float r1  = superShape(lat, 7, 0.2, 1.7, 1.7);	
 		for (int j = 0; j < res + 1; ++j) {
-			float lon = map(j, 0, res, -PI, PI);
+			float lon = map(j, 0, res, 0, TWO_PI);
 			float r2  = superShape(lon, 7, 0.2, 1.7, 1.7);
-			float x   = r * r1 * cos(lon) * r2 * cos(lat);
-			float y   = r * r1 * sin(lon) * r2 * cos(lat);
+			float x   = r * r1 * cos(lon) * r2 * cos(lon);
+			float y   = r * r1 * sin(lon) * r2 * cos(lon);
 			float z   = r * r2 * sin(lat);
 			globe[i][j] = new PVector(x, y, z);
 		}

@@ -43,10 +43,10 @@ public void draw() {
 	float r = 200;
 
 	for (int i = 0; i < res + 1; ++i) {
-		float lat = map(i, 0, res, -HALF_PI, HALF_PI);
+		float lat = map(i, 0, res, 0, PI);
 		float r1  = superShape(lat, 7, 0.2f, 1.7f, 1.7f);	
 		for (int j = 0; j < res + 1; ++j) {
-			float lon = map(j, 0, res, -PI, PI);
+			float lon = map(j, 0, res, 0, TWO_PI);
 			float r2  = superShape(lon, 7, 0.2f, 1.7f, 1.7f);
 			float x   = r * r1 * cos(lon) * r2 * cos(lat);
 			float y   = r * r1 * sin(lon) * r2 * cos(lat);

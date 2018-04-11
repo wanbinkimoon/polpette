@@ -2,6 +2,7 @@ import themidibus.*; //Import the library
 
 MidiBus myBus; // The MidiBus
 int val = 0;
+
 void setup() {
   size(800, 800);
   background(125);
