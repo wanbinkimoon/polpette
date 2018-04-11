@@ -14,7 +14,7 @@ import java.io.InputStream;
 import java.io.OutputStream; 
 import java.io.IOException; 
 
-public class strange_sphere extends PApplet {
+public class strange_sphere_2 extends PApplet {
 
 
 
@@ -55,10 +55,10 @@ public void draw() {
 
 	for (int i = 0; i < res + 1; ++i) {
 		float lat = map(i, 0, res, -HALF_PI, HALF_PI);
-		float r2  = superShape(lat, 7, 0.2f, 1.7f, 1.7f);
+		float r2  = superShape(lat, 2, 10, 10, 10);
 		for (int j = 0; j < res + 1; ++j) {
 			float lon = map(j, 0, res, -PI, PI);
-			float r1  = superShape(lon, 7, 0.2f, 1.7f, 1.7f);	
+			float r1  = superShape(lon, 8, 60, 100, 30);	
 			float x   = r * r1 * cos(lon) * r2 * cos(lat);
 			float y   = r * r1 * sin(lon) * r2 * cos(lat);
 			float z   = r * r2 * sin(lat);
@@ -87,7 +87,7 @@ public void draw() {
 }	
   public void settings() { 	size(800, 800, P3D); }
   static public void main(String[] passedArgs) {
-    String[] appletArgs = new String[] { "strange_sphere" };
+    String[] appletArgs = new String[] { "strange_sphere_2" };
     if (passedArgs != null) {
       PApplet.main(concat(appletArgs, passedArgs));
     } else {

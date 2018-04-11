@@ -1,30 +1,12 @@
-import processing.core.*; 
-import processing.data.*; 
-import processing.event.*; 
-import processing.opengl.*; 
-
-import peasy.*; 
-
-import java.util.HashMap; 
-import java.util.ArrayList; 
-import java.io.File; 
-import java.io.BufferedReader; 
-import java.io.PrintWriter; 
-import java.io.InputStream; 
-import java.io.OutputStream; 
-import java.io.IOException; 
-
-public class strange_sphere extends PApplet {
-
-
+import peasy.*;
 
 PeasyCam cam;
 
 PVector[][] globe;
 int res = 75;
 
-public void setup() {
-	
+void setup() {
+	size(800, 800, P3D);
 	colorMode(HSB);
 	cam = new PeasyCam(this, 600);
 	globe = new PVector[res+1][res+1];
@@ -34,7 +16,7 @@ public void setup() {
 	float a = 1;
 	float b = 1;
 
-public float superShape(float theta, float m, float n1, float n2, float n3){
+float superShape(float theta, float m, float n1, float n2, float n3){
 
 
 	float t1 = abs((1/a) * cos(m * theta / 4));
@@ -47,7 +29,7 @@ public float superShape(float theta, float m, float n1, float n2, float n3){
 	return r;
 }
 
-public void draw() {
+void draw() {
 	background(0);
 	lights();
 	noStroke();
@@ -55,10 +37,10 @@ public void draw() {
 
 	for (int i = 0; i < res + 1; ++i) {
 		float lat = map(i, 0, res, -HALF_PI, HALF_PI);
-		float r2  = superShape(lat, 7, 0.2f, 1.7f, 1.7f);
+		float r2  = superShape(lat, 2, 10, 10, 10);
 		for (int j = 0; j < res + 1; ++j) {
 			float lon = map(j, 0, res, -PI, PI);
-			float r1  = superShape(lon, 7, 0.2f, 1.7f, 1.7f);	
+			float r1  = superShape(lon, 8, 60, 100, 30);	
 			float x   = r * r1 * cos(lon) * r2 * cos(lat);
 			float y   = r * r1 * sin(lon) * r2 * cos(lat);
 			float z   = r * r2 * sin(lat);
@@ -85,13 +67,3 @@ public void draw() {
 		endShape();
 	}
 }	
-  public void settings() { 	size(800, 800, P3D); }
-  static public void main(String[] passedArgs) {
-    String[] appletArgs = new String[] { "strange_sphere" };
-    if (passedArgs != null) {
-      PApplet.main(concat(appletArgs, passedArgs));
-    } else {
-      PApplet.main(appletArgs);
-    }
-  }
-}
