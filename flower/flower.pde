@@ -1,5 +1,7 @@
-float n = 0.5;
-int c = 18;
+float n = 1;
+int c = 4;
+float angle = 137.5;
+// float angle = 180;
 
 void setup() {
 	size(800, 800);
@@ -7,14 +9,17 @@ void setup() {
 }
 
 void draw() {
-	float a = n * 137.5;
+	translate(width / 2 , height / 2);
+
+	float a = n * angle;
 	float r = c * sqrt(n);
 
-	float x = n * cos(a) + width / 2;
-	float y = n * sin(a) + height / 2;
+	float x = n * cos(radians(a));
+	float y = n * sin(radians(a));
 
 	fill(255);
-	ellipse(x, y, 8, 8);
+	noStroke();
+	ellipse(x, y, 4, 4);
 
 	n += 0.5;
 }

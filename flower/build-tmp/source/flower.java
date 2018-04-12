@@ -12,10 +12,12 @@ import java.io.InputStream;
 import java.io.OutputStream; 
 import java.io.IOException; 
 
-public class spiral extends PApplet {
+public class flower extends PApplet {
 
-float n = 0.5f;
-int c = 18;
+float n = 1;
+int c = 4;
+float angle = 137.5f;
+// float angle = 180;
 
 public void setup() {
 	
@@ -23,20 +25,23 @@ public void setup() {
 }
 
 public void draw() {
-	float a = n * 137.5f;
+	translate(width / 2 , height / 2);
+
+	float a = n * angle;
 	float r = c * sqrt(n);
 
-	float x = n * cos(a) + width / 2;
-	float y = n * sin(a) + height / 2;
+	float x = n * cos(radians(a));
+	float y = n * sin(radians(a));
 
 	fill(255);
-	ellipse(x, y, 8, 8);
+	noStroke();
+	ellipse(x, y, 4, 4);
 
 	n += 0.5f;
 }
-  public void settings() { 	size(512, 512); }
+  public void settings() { 	size(800, 800); }
   static public void main(String[] passedArgs) {
-    String[] appletArgs = new String[] { "spiral" };
+    String[] appletArgs = new String[] { "flower" };
     if (passedArgs != null) {
       PApplet.main(concat(appletArgs, passedArgs));
     } else {
