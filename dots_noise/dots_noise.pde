@@ -1,5 +1,5 @@
 
-int res = 40;
+int res = 16;
 float seed = 0;
 
 void setup() {
@@ -11,20 +11,20 @@ void setup() {
 
 void draw() {
 
-	int rows = width / res;
-	int cols = height / res;
+	int w = width / res;
+	int h = height / res;
 
 	for (int i = 0; i < res; ++i) {
-		int x = rows * i;
+		int x = w * i;
 
 
 		for (int j = 0; j < res; ++j) {
-			int y = cols * j;
+			int y = h * j;
 			int defaultHue = j * i + 160;
 			float hue = noise(seed * (j + 1) * (i + 1) * .5);
 
 			fill(hue * defaultHue, 255, 255);
-			rect(x, y, res, res);
+			rect(x, y, w, h);
 		}
 
 	}

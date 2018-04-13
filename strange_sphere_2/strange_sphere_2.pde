@@ -3,7 +3,7 @@ import peasy.*;
 PeasyCam cam;
 
 PVector[][] globe;
-int res = 75;
+int res = 25;
 
 void setup() {
 	size(800, 800, P3D);

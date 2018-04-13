@@ -21,7 +21,7 @@ public class strange_sphere_2 extends PApplet {
 PeasyCam cam;
 
 PVector[][] globe;
-int res = 75;
+int res = 25;
 
 public void setup() {
 	
