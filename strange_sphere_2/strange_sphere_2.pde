@@ -3,7 +3,7 @@ import peasy.*;
 PeasyCam cam;
 
 PVector[][] globe;
-int res = 200;
+int res = 80;
 
 void setup() {
 	size(800, 800, P3D);
@@ -53,8 +53,9 @@ void draw() {
 		// float hue = map(i, 0, res, 0, 255 * 6);
 		// fill(hue % 255, 255, 255);
 
-		fill(125, 255, 200);
-		// noFill();
+		// fill(125, 255, 200);
+		noFill();
+		stroke(255);
 
 		for (int j = 0; j < res+1; ++j) {
 		
